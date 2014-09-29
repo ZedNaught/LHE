@@ -1,0 +1,136 @@
+/* --------------------------
+	FLEXBOX MIXINS
+----------------------------- */	
+
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+
+@mixin flex-flow($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex-flow:  $values;
+}
+
+
+@mixin justify-content($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  justify-content:  $values;
+}
+
+@mixin align-items($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  align-items:  $values;
+}
+
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;  
+  -moz-box-ordinal-group: $val;     
+  -ms-flex-order: $val;     
+  -webkit-order: $val;  
+  order: $val;
+}
+
+.wrapper {
+  @include flexbox();
+}
+
+.item {
+  @include flex(1 200px);
+  @include order(2);
+}
+
+
+
+/* --------------------------
+	SOCIAL HEXAGON
+	----------------------------- */	
+@mixin hexagonTop($value) {
+	border-bottom: (10px solid ($value)); 
+	border-left: (16.5px solid transparent);
+	border-right: (16.5px solid transparent);
+	content: " ";
+    width: 0; height: 0;
+    top: -10px;
+    position: absolute;
+    	
+	}
+	
+
+	@mixin hexagonBottom($value) {
+		content: "";
+    	width: 0;
+		position: absolute;
+    	bottom: -10px;
+    	border-top: 10px solid ($value);
+    	border-left: 16.5px solid transparent;
+    	border-right: 16.5px solid transparent;
+    		
+	}
+	
+	@mixin hexagon($margin-top, $margin-right, $width, $height, $background-color, $icon, $iconCode) {
+	margin-top: $margin-top;
+    margin-right: $margin-right;    
+    width: $width;
+    height: $height;
+    position: relative;
+    background-color: $background-color; 
+    	&:before {
+    	@include hexagonTop($background-color);
+		}
+		&:after {
+    	@include hexagonBottom($background-color);
+		}
+		&:hover {
+		background-color: lighten($background-color, 10%);
+		transition-property: background-color;
+		transition-duration: .5s;
+		}
+		&:hover:after {
+		border-top: 10px solid lighten($background-color, 10%);
+		transition-duration: .5s;
+		}
+		&:hover:before {
+		border-bottom: 10px solid lighten($background-color, 10%);
+		transition-duration: .5s;
+		}
+		&:hover .#{$icon}Icon:before  {
+		transition: 1s ease-in-out;
+		-webkit-transform: rotate(1turn);
+		}
+		.#{$icon}Icon:before {
+		position: absolute;
+		left: 30%;
+		top: 13%;
+		content: "#{$iconCode}";
+		font-family: "icomoon";
+		font-size: .6em;
+		color: #ffffff;
+		}
+	}
+	
+

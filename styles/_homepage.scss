@@ -1,0 +1,114 @@
+.strip {
+	@include flexbox();
+		@include flex-flow(row nowrap);
+		@include align-items(center);
+		@include justify-content(space-around);
+	position: relative;
+	width: 100%;
+	color: $text-color;
+	margin-bottom: 50px;
+	font-family: droid serif;
+	background-color: $primary-color;
+	  ul{
+		list-style-type: none;
+		padding:20px;
+		font-size: 1.5em;
+			@media #{$tablet} {
+				& {
+				font-size: 1.2em;
+				}
+			}
+			@media #{$mobile} {
+				& {
+				font-size: .9em;
+				}
+			}
+		}
+}
+
+
+	
+/* --------------------------
+	HONEYCOMB HEXAGONS
+----------------------------- */	
+	
+.honeycombs{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+}
+
+.honeycombs .inner_span{
+	display: block;
+	height: 100%;
+	width: 100%;
+	-webkit-opacity: 0.7;
+	background-color: #e52c50;
+	font-family: Klavika;
+	color: #ffffff;
+}
+
+
+.honeycombs .inner-text{
+	padding-top: 30%;
+}
+
+.honeycombs .honeycombs-inner-wrapper{
+	display: inline-block;
+	overflow: hidden;
+	width: 700px;
+	position: relative;
+	height: 1200px;
+}
+
+.honeycombs .comb{
+	position: absolute;
+	display: inline-block;
+}
+
+.honeycombs .hex_l,
+.honeycombs .hex_r{
+	overflow: hidden;
+	position: absolute;
+	/* -webkit-backface-visibility: hidden; */
+}
+
+.honeycombs .hex_l{
+	visibility: hidden;
+	-moz-transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	-o-transform: rotate(60deg);
+	-webkit-transform: rotate(60deg);
+	
+	transform: rotate(60deg);
+}
+
+.honeycombs .hex_r{
+	visibility: hidden;
+	-moz-transform: rotate(-120deg);
+	-ms-transform: rotate(-120deg);
+	-o-transform: rotate(-120deg);
+	-webkit-transform: rotate(-120deg);
+	
+	transform: rotate(-120deg);
+}
+
+.honeycombs .hex_inner {
+	display: block;
+	visibility: visible;
+	-moz-transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	-o-transform: rotate(60deg);
+	-webkit-transform: rotate(60deg);
+	
+	transform: rotate(60deg);
+	
+	background-position: center;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	cursor: pointer;
+	
+}
