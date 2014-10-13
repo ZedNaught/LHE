@@ -1,0 +1,53 @@
+
+
+    <div class="aboutHeader"> 
+                    <ul class="aboutHeaderTop">
+                        <li id="barLeft"'></li>
+                        <li id="aboutTitle">Agora?</li>
+                        <li id="barRight"></li>
+                    </ul>
+                    <div id="aboutText">Agora is a creative cross-media creative agency.  
+    We like to make stuff.  Some stuff more than others.</div>
+                    <div id="barBottom"></div>
+
+        <header class="aboutNav" >
+                <ul ng-init="tab=2" class="about-navigation">
+                    <li ng-class="{active:tab===1}" class="aboutNavText"><a href ng-click="tab=1">our work</a></li>
+
+                    <li ng-class="{active:tab===2}" class="aboutNavText"><a href ng-click="tab=2">who we are</a></li>
+
+                    <li ng-class="{active:tab===3}" class="aboutNavText"><a href ng-click="tab=3">our story</a></li>
+                </ul>
+        </header>
+
+        <div ng-show="tab===1" class="ourWork">
+            <p> This where previews of what we done go.</p>
+        </div>
+
+
+    
+        <div ng-show="tab===2" class="aboutStaffEntry">
+
+            <div class="leftStaffEntry">
+                <ul class="staffInfo">
+                    <li>Ashwin Dayal</li>
+                    <li>Manager</li>
+                    <li><a>ashwin@agora.com</a></li>
+                </ul>
+            </div>
+
+            <div class="rightStaffEntry">
+                <div class="staffDescription">Ashvin Dayal joined the Rockefeller Foundation in 2008. As Associate Vice President, Managing Director, Asia, he manages the Foundation’s regional office based in Bangkok, Thailand, and oversees work across Asia, strengthening and complementing the Foundation’s initiatives around the globe. Ashvin leads a major initiative aimed at building the capacity of cities to cope with the effects of climate change, through the Asian Cities Climate Change Resilience Network (ACCCRN).<div class="staffSocial"><a href="twitter.com"></a></div></div>
+                
+            </div>
+
+        </div>
+
+        
+        <div ng-show="tab===3" class="ourStory">
+            <p> This where previews of our story go.</p>
+        </div>
+
+
+
+  
