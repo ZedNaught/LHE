@@ -1,4 +1,4 @@
-var pageApp = angular.module('pageApp', ['ngRoute']);
+var pageApp = angular.module('pageApp', ['ngRoute', 'ngAnimate']);
 
 
 	pageApp.config(function($routeProvider) {
