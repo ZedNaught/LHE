@@ -134,3 +134,16 @@
 	}
 	
 
+@mixin staffBoxName($Position) {
+   font-size: 1.3em;
+        &::after {
+        color: lighten($menubar-color, 10%);
+        content: "#{$Position}";
+        padding-left: 6px;
+        }
+      @media #{$tablet}{
+              &{
+              font-size:1em;
+                }
+              }
+  }

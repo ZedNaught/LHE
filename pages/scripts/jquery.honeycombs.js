@@ -120,7 +120,7 @@
             
             $(window).resize(function(){
                 // console.log($(window).width())
-                reorder(false);
+                reorder(true);
             });
             
             $(element).find('.comb').mouseenter(function(){
@@ -134,7 +134,7 @@
             });
             
             buildHtml();
-            reorder(false);
+            reorder(true);
         }
 
         return this.each(function() {

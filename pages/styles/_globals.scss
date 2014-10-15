@@ -1,0 +1,276 @@
+
+
+
+/* ROOT */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+	background-color: $background-color;
+	font-family: $primary-font;
+	
+			a {
+			color: $link-color;
+			font-family: $primary-font;
+			text-decoration: none;
+			
+				&:hover {
+				color: $primary-color;
+				}
+				
+			}
+}
+
+
+
+
+.body {
+	margin: 0 auto; 
+	width: 95%;
+	clear: both;
+}
+
+
+/* 
+----------------------------
+HEADER
+----------------------------
+ */ 
+ 
+ 
+.mainHeader {
+	position: relative;
+	height: 100px;
+	
+		.logo {
+		font-size: 4em;
+		font-family: Klavika;
+		color: $text-color;
+		position: absolute;
+		left: -.4%;
+		top: 20%;
+			span {
+			color: $primary-color;
+			}
+				@media #{$tablet} {
+					& {
+    				font-size: 3.2em;
+    				padding-top: 9px;
+    				}
+    			}
+
+    			@media #{$desktop1} {
+					& {
+    					font-size: 2.8em;
+    					padding-top: 9px;
+    				}
+    			}
+    		
+			}
+		
+		
+		.main-navigation {
+		position: absolute;
+		right: 0%;
+		top: 28%;
+		background-color: $menubar-color;
+		width: 50%;
+		min-width: 350px;
+		height: 40px;
+		font-size: 1.2em;
+		list-style-type: none;
+		@include flexbox();
+		@include flex-flow(row nowrap);
+		@include align-items(center);
+		@include justify-content(space-between);
+		
+			@media #{$tablet} {
+			display: none;
+			}
+		
+			li.navText {
+			color: #ffffff;
+			display: inline-block;
+			padding: 10px;
+				
+					@media #{$desktop1}{
+    					&{
+    					font-size: .8em;
+    	   			 	}
+    	   			}
+    	   			
+					& a:link, & a:visited {
+					color: #ffffff;
+					display: inline-block;
+					}
+
+					& a:hover, & a:active, 
+					& .active a:link, & .active a:visited {
+					background-color: #e52c50;
+					color: #151516;
+					text-shadow: none;
+					height: 50px;
+					padding: 15px;
+					transition-property: background-color;
+					transition-duration: .5s;
+					overflow: visible;
+					}
+			}
+		}
+	
+	
+	.menuButton {
+	position: absolute;
+	right: -1%;
+	padding-top: 30px;
+	display: none;
+		@media #{$tablet} {
+		display: block;
+		}
+			&:before {
+			position: relative;
+			content: "\e608";
+			font-family: "icomoon";
+			color: $link-color;
+			font-size: 3em;
+			}
+				
+			&:hover:before {
+			color: $primary-color;
+			transition-property: color;
+			transition-duration: 1s;
+			}
+		}
+	
+
+	
+	
+	
+	
+	/* --------------------------
+	SOCIAL ICONS
+	----------------------------- */		
+	
+
+	.hexMail {
+		margin-left: 5%;
+		@include hexagon(2px, 10px, 32px, 16px, $primary-color, mail, "\e604");
+		}
+
+
+	.hexFacebook {
+				justify: flex-end;
+
+    	@include hexagon(2px, 10px, 32px, 16px, $facebook, facebook, "\e600");
+		}
+
+
+	.hexTwitter {
+			justify-self: flex-end;
+
+    	@include hexagon(2px, 10px, 32px, 16px, $twitter, twitter, "\e601");
+    	}
+
+	}
+	
+	
+
+		/* --------------------------
+	ANIMATIONS
+	----------------------------- */	
+
+
+.ng-leave 	{ -webkit-animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }
+.ng-enter 	{ -webkit-animation: scaleUp .7s both ease-in; z-index: 8888; }
+
+
+
+
+/* rotate and fall */
+@-webkit-keyframes rotateFall {
+	0% { -webkit-transform: rotateZ(0deg); }
+	20% { -webkit-transform: rotateZ(10deg); -webkit-animation-timing-function: ease-out; }
+	40% { -webkit-transform: rotateZ(17deg); }
+	60% { -webkit-transform: rotateZ(16deg); }
+	100% { -webkit-transform: translateY(100%) rotateZ(17deg); }
+}
+@-moz-keyframes rotateFall {
+	0% { -moz-transform: rotateZ(0deg); }
+	20% { -moz-transform: rotateZ(10deg); -moz-animation-timing-function: ease-out; }
+	40% { -moz-transform: rotateZ(17deg); }
+	60% { -moz-transform: rotateZ(16deg); }
+	100% { -moz-transform: translateY(100%) rotateZ(17deg); }
+}
+@keyframes rotateFall {
+	0% { transform: rotateZ(0deg); }
+	20% { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+	40% { transform: rotateZ(17deg); }
+	60% { transform: rotateZ(16deg); }
+	100% { transform: translateY(100%) rotateZ(17deg); }
+}
+
+/* scale up */
+@keyframes scaleUp {
+	from 		{ opacity: 0.3; transform: scale(0.8); }
+}
+@-moz-keyframes scaleUp {
+	from 		{ opacity: 0.3; -moz-transform: scale(0.8); }
+}
+@-webkit-keyframes scaleUp {
+	from 		{ opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+	from 	{ transform:translateX(100%); }
+	to 		{ transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+	from 	{ -moz-transform:translateX(100%); }
+	to 		{ -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+	from 	{ -webkit-transform:translateX(100%); }
+	to 		{ -webkit-transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+	from 	{ transform:translateY(100%); }
+	to 		{ transform: translateY(0); }
+}
+@-moz-keyframes slideInUp {
+	from 	{ -moz-transform:translateY(100%); }
+	to 		{ -moz-transform: translateY(0); }
+}
+@-webkit-keyframes slideInUp {
+	from 	{ -webkit-transform:translateY(100%); }
+	to 		{ -webkit-transform: translateY(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+	to 		{ transform: translateX(-100%); }
+}
+@-moz-keyframes slideOutLeft {	
+	to 		{ -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes slideOutLeft {
+	to 		{ -webkit-transform: translateX(-100%); }
+}
+
+/* rotate out newspaper */
+@-webkit-keyframes rotateOutNewspaper {
+	to { -webkit-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@-moz-keyframes rotateOutNewspaper {
+	to { -moz-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@keyframes rotateOutNewspaper {
+	to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
